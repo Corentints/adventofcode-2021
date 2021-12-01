@@ -1,19 +1,12 @@
-import { Interface } from "readline";
-import openEntry from "../../utils/readEntry";
+import entryToArray from "../../utils/entryToArray";
 
-const entry: Interface = openEntry(1, 1);
-let totalIncreased: number = 0;
-let previous: number | null = null;
+const entry: Array<string> = entryToArray({
+  day: 1,
+  entry: 1,
+  separator: "\n",
+});
 
-entry
-  .on("line", (line) => {
-    if (previous && parseInt(line) > previous) {
-      totalIncreased += 1;
-    }
-    previous = parseInt(line);
-  })
-  .on("close", () => {
-    console.log(
-      totalIncreased + " measurements are larger than the previous measurement."
-    );
-  });
+const sumIncreased = (sum, current, iterator, array) => current > array[iterator - 1] ? sum + 1 : sum;
+
+const totalIncreased = entry.map((line) => parseInt(line)).reduce(sumIncreased, 0)
+console.log(totalIncreased + " measurements are larger than the previous measurement.");
