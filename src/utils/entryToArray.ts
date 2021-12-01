@@ -11,9 +11,9 @@ type openEntryType = {
 /**
  * 
 * @param {Object} entry 
- * @param {string} employee.day - Exercise's day
- * @param {string} employee.exerciseNumber - Entry's number
- * @param {string} employee.separator - Entry file separator
+ * @param {string} entry.day - Exercise's day
+ * @param {string} entry.exerciseNumber - Entry's number
+ * @param {string} entry.separator - Entry file separator
  * @returns 
  */
 const entryToArray = ({ day, entry, separator }: openEntryType): Array<string> => {
