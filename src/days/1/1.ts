@@ -1,7 +1,7 @@
 import { Interface } from "readline";
-import openFile from "../utils/readFile";
+import openEntry from "../../utils/readEntry";
 
-const entry: Interface = openFile("/1/entries/1.txt");
+const entry: Interface = openEntry(1, 1);
 let totalIncreased: number = 0;
 let previous: number | null = null;
 
