@@ -4,7 +4,8 @@
   "description": "adventofcode-2021",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npx tsc",
+    "watch": "npx tsc --watch"
   },
   "repository": {
     "type": "git",
@@ -16,8 +17,12 @@
   "bugs": {
     "url": "https://github.com/Corentints/adventofcode-2021/issues"
   },
+  "type": "module",
   "homepage": "https://github.com/Corentints/adventofcode-2021#readme",
   "devDependencies": {
     "typescript": "^4.5.2"
+  },
+  "dependencies": {
+    "@types/node": "^16.11.11"
   }
 }
