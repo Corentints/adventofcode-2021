@@ -13,22 +13,25 @@ type Position = {
 };
 
 const calcPosition = (position: Position, current: string): Position => {
-  const instruction = current.split(" ")[0];
-  const value = parseInt(current.split(" ")[1]);
+  const direction: string = current.split(" ")[0];
+  const value: number = Number(current.split(" ")[1]);
 
-  if (instruction === "forward") {
-    position.x += value;
-    position.y += position.aim * value;
+  if (direction === "forward") {
+    return {
+      ...position,
+      x: (position.x += value),
+      y: (position.y += position.aim * value),
+    };
   }
-  if (instruction === "up") position.aim -= value;
-  if (instruction === "down") position.aim += value;
-  return position;
+  if (direction === "up") return { ...position, aim: (position.aim -= value) };
+  if (direction === "down")
+    return { ...position, aim: (position.aim += value) };
 };
 
-const finalInstructions: Position = entry.reduce(calcPosition, {
+const finalPosition: Position = entry.reduce(calcPosition, {
   x: 0,
   y: 0,
   aim: 0,
 });
 
-console.log(finalInstructions.x * finalInstructions.y);
+console.log(finalPosition.x * finalPosition.y);
