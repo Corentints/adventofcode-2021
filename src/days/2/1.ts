@@ -12,14 +12,17 @@ type Position = {
 };
 
 const calcPosition = (position: Position, current: string): Position => {
-  const direction: string = current.split(" ")[0];
-  const value: number = Number(current.split(" ")[1]);
+  const direction = current.split(" ")[0];
+  const value = Number(current.split(" ")[1]);
 
   if (direction === "forward") return { ...position, x: (position.x += value) };
   if (direction === "up") return { ...position, y: (position.y -= value) };
   if (direction === "down") return { ...position, y: (position.y += value) };
 };
 
-const finalPosition: Position = entry.reduce(calcPosition, { x: 0, y: 0 });
+const finalPosition: Position = entry.reduce(calcPosition, {
+  x: 0,
+  y: 0,
+});
 
 console.log(finalPosition.x * finalPosition.y);

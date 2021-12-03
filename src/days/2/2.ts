@@ -13,8 +13,8 @@ type Position = {
 };
 
 const calcPosition = (position: Position, current: string): Position => {
-  const direction: string = current.split(" ")[0];
-  const value: number = Number(current.split(" ")[1]);
+  const direction = current.split(" ")[0];
+  const value = Number(current.split(" ")[1]);
 
   if (direction === "forward") {
     return {
