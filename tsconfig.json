@@ -4,6 +4,8 @@
     "target": "es2020",
     "moduleResolution": "node",
     "outDir": "./.build",
+    "noImplicitAny": true,
+    "allowSyntheticDefaultImports": true
   },
   "include": ["./src"],
   // NEW: Options for file/directory watching
