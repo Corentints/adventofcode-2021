@@ -1,8 +1,13 @@
 adventofcode-2021
 
+![result gif](https://i.imgur.com/qAKT9x5.gif)
+
 # Build the project
 
-`npm run build`
-`node --experimental-specifier-resolution=node .build/app.js`
+```
+npm run build
+```
 
-![result gif](https://i.imgur.com/qAKT9x5.gif)
+```
+node --experimental-specifier-resolution=node .build/app.js
+```
