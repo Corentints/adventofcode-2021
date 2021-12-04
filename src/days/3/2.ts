@@ -20,7 +20,7 @@ const getLinesMatchColumnCriteria = (
 
   const occurencesByColumn = lines.reduce(
     (column: Column, current: string): Column => {
-      current.split("")[colNumber] === "1" ? column.one++ : column.zero++;
+      current[colNumber] === "1" ? column.one++ : column.zero++;
       return column;
     },
     { zero: 0, one: 0 }
