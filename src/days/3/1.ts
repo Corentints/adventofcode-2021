@@ -34,4 +34,4 @@ entry.reduce(occurencesByColumn, []).forEach((column) => {
   epsilon += sortedValues[1];
 });
 
-console.log(gamma, epsilon, parseInt(gamma, 2) * parseInt(epsilon, 2));
+console.log(parseInt(gamma, 2) * parseInt(epsilon, 2));
