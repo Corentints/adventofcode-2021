@@ -14,12 +14,15 @@ type Column = {
 let gamma = "";
 let epsilon = "";
 
-const occurencesByColumn = (columns: Array<Column>, current: string): Array<Column> => {
+const occurencesByColumn = (
+  columns: Array<Column>,
+  current: string
+): Array<Column> => {
   current
     .replace("\r", "")
     .split("")
     .forEach((binary, index) => {
-      if (!columns[index]) columns[index] = { zero: 0, one: 0 };
+      if (index === 0) columns[index] = { zero: 0, one: 0 };
       Number(binary) ? columns[index].one++ : columns[index].zero++;
     });
   return columns;
