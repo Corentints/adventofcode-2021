@@ -14,7 +14,7 @@ type Column = {
 const getLinesMatchColumnCriteria = (
   lines: Array<string>,
   colNumber: number,
-  mostCommon: boolean = true
+  mostCommon = true
 ): string => {
   if (lines.length === 1) return lines[0];
 
