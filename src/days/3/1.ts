@@ -14,7 +14,7 @@ type Column = {
 let gamma = "";
 let epsilon = "";
 
-const reducer = (columns: Array<Column>, current: string): Array<Column> => {
+const occurencesByColumn = (columns: Array<Column>, current: string): Array<Column> => {
   current
     .replace("\r", "")
     .split("")
@@ -25,7 +25,7 @@ const reducer = (columns: Array<Column>, current: string): Array<Column> => {
   return columns;
 };
 
-entry.reduce(reducer, []).forEach((column) => {
+entry.reduce(occurencesByColumn, []).forEach((column) => {
   const sortedValues = column.one > column.zero ? ["1", "0"] : ["0", "1"];
   gamma += sortedValues[0];
   epsilon += sortedValues[1];
