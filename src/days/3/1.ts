@@ -22,7 +22,7 @@ const occurencesByColumn = (
     .replace("\r", "")
     .split("")
     .forEach((binary, index) => {
-      if (index === 0) columns[index] = { zero: 0, one: 0 };
+      if (!columns[index]) columns[index] = { zero: 0, one: 0 };
       Number(binary) ? columns[index].one++ : columns[index].zero++;
     });
   return columns;
