@@ -16,7 +16,7 @@ type Boards = Array<Board>;
 
 const getAllBoards = (boards: Boards, line: string): Boards => {
   if (line === "\r") {
-    boards[boards.length] = []; // new board every 6 lines
+    boards[boards.length] = []; // new board empty line
   } else {
     const i = boards[boards.length] ? boards.length : boards.length - 1;
     const cleanLine = line
