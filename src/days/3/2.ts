@@ -11,10 +11,12 @@ type Column = {
   one: number;
 };
 
+type Frequency = "most-common" | "least-common";
+
 const getLinesMatchColumnCriteria = (
   lines: Array<string>,
-  colNumber: number,
-  mostCommon = true
+  frequency: Frequency,
+  colNumber = 0
 ): string => {
   if (lines.length === 1) return lines[0];
 
@@ -29,11 +31,11 @@ const getLinesMatchColumnCriteria = (
   const bitsByOccurence =
     occurencesByColumn.one >= occurencesByColumn.zero ? ["1", "0"] : ["0", "1"];
 
-  const bitToKeep = mostCommon ? bitsByOccurence[0] : bitsByOccurence[1];
+  const bitToKeep = frequency === "most-common" ? bitsByOccurence[0] : bitsByOccurence[1];
   const remainingLines = lines.filter((line) => line[colNumber] === bitToKeep);
-  return getLinesMatchColumnCriteria(remainingLines, colNumber + 1, mostCommon);
+  return getLinesMatchColumnCriteria(remainingLines, frequency, colNumber + 1);
 };
 
-const oxygen = getLinesMatchColumnCriteria(entry, 0);
-const co2 = getLinesMatchColumnCriteria(entry, 0, false);
+const oxygen = getLinesMatchColumnCriteria(entry, "most-common");
+const co2 = getLinesMatchColumnCriteria(entry, "least-common");
 console.log(parseInt(oxygen, 2) * parseInt(co2, 2));
